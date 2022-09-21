@@ -1,12 +1,13 @@
 import axios from "axios";
 
 const form = document.querySelector("form") as HTMLFormElement;
+const inputEl = document.getElementById("address") as HTMLInputElement;
+
 
 const GOOGLE_MAP_API_KEY = "AIzaSyBPxD365rZocu5KOxcNAL9n7mcQMO3YwJQ";
 
 const addressSubmitHandler = (event: Event) => {
   event.preventDefault();
-  const inputEl = document.getElementById("address") as HTMLInputElement;
   const address = inputEl.value;
   if (address.trim().length === 0) {
     return;
@@ -28,7 +29,7 @@ const addressSubmitHandler = (event: Event) => {
         document.getElementById("map") as HTMLElement,
         {
           center: coordinates,
-          zoom: 16,
+          zoom: 14,
         }
       );
       new google.maps.Marker({
